@@ -28,3 +28,11 @@ exports.isUser = async (req, res, next) => {
     return sendError(res, "Invalid token or token expired!", 401);
   }
 };
+
+exports.isAdmin = (req, res, next) => {
+  const { user } = req;
+
+  if (user.role !== "admin") return sendError(res, "Unauthorized access!", 404);
+
+  next();
+};

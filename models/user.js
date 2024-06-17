@@ -36,6 +36,10 @@ const userSchema = mongoose.Schema({
         default: false,
         required: true
     },
+    bio: {
+        type: String,
+        trim: true,
+    },
     createAt : {
         type: Date,
         required: true,
